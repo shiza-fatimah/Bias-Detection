@@ -1,0 +1,14 @@
+Total Stories: 12
+Skipped from error cache: 2
+Stories that can be fetched: 13
+Saved from cache: 0
+Saved new: 8
+Total Saved: 8
+Total Errors: 7
+---- Robot blocked: 0
+---- 404: 0
+---- Subscription: 2
+---- Parsing: 5
+---- New: 0
+Wayback - Success: 0
+Wayback - Fail: 0
