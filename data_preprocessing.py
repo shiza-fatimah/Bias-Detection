@@ -136,7 +136,7 @@ class Preprocessor:
         
         #Remove punctuation, stopwords, digits, etc.
         logger.info("Removing punctuation, stopwords, digits, etc.")
-        text = self.remove_punctuation_stopwords_digits(text)
+        #text = self.remove_punctuation_stopwords_digits(text)
 
         return text
 
@@ -151,7 +151,10 @@ class Preprocessor:
         
         # Remove rows with containing NaN values or only whitespace and empty rows whitespace
         logger.info("Removing nan and empty rows")
-        self.df = self.df[self.df['content'].notna() & self.df['content'].str.strip().astype(bool)]
+        #self.df = self.df[self.df['content'].notna() & self.df['content'].str.strip().astype(bool)]
+        #self.df = self.df[self.df['bias'].notna() & self.df['bias'].str.strip().astype(bool)]
+        self.df = self.df.dropna(subset=['content'])
+        self.df = self.df.dropna(subset=['bias'])
         
         # Remove spaces before and after 'new_paragraph'
         logger.info("Removing spaces before and after 'new_paragraph")
@@ -174,4 +177,4 @@ if __name__ == "__main__":
     df = pd.read_csv('allsides-df.csv')
     preprocessor = Preprocessor(df)
     processed_df = preprocessor.preprocess()
-    #processed_df.to_csv('allsides-df-processed.csv', index=False)
+    processed_df.to_csv('allsides-df-processed.csv', index=False)
